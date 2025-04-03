@@ -1,3 +1,6 @@
+def sort_on(e):
+    return e['count']
+
 def get_words(book):
     word_list=book.split()
     return len(word_list)
@@ -19,4 +22,7 @@ def sort_print(char_dict):
     for key,value in char_dict.items():
         if key.isalpha():
             sorted_list.append({"character" : key, "count" : value})
-    print(sorted_list)
+    sorted_list.sort(reverse= True, key=sort_on)
+    for entry in sorted_list:
+        print(entry["character"] +  ": " + str(entry["count"]))
+    print("============ END ============")
